@@ -36,5 +36,13 @@ def add_case():
     
     return jsonify({"message": "User added", "userId": user_data[userId]}), 201
 
+@app.delete("/delete-case/<userId>")
+def delete_case(userId):
+    if userId not in user_data:
+        return jsonify({"error": "No cases found"}), 404
+    
+    del user_data[userId]
+    return jsonify({"message": "Case deleted"}), 200
+
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 3000)
