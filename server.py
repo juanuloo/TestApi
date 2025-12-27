@@ -1,12 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
-from fastapi import FastApi
-import sqlite3
-from datetime import datetime
 
-app = FastApi()
-
-conn = sqlite3
+app = Flask(__name__)
 
 user_data = {}
 
